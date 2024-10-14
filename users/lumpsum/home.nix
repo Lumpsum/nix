@@ -36,7 +36,6 @@
     pkgs.opentofu
     pkgs.pipx
     pkgs.ripgrep
-    pkgs.oh-my-posh
     pkgs.tmux
     pkgs.whatsapp-for-linux
     pkgs.watch
@@ -48,7 +47,7 @@
     pkgs.unzip
     pkgs.nodePackages.npm
     pkgs.gnumake
-    pkgs.go-task
+    # pkgs.go-task
     pkgs.kubectl
     pkgs.python3
     pkgs.htop
@@ -88,6 +87,7 @@
   k9s.enable = true;
   wezterm.enable = true;
   yazi.enable = true;
+  ohmyposh.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
