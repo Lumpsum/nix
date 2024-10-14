@@ -9,10 +9,13 @@
 	    inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    darwin.url = "github:lnl7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     zen-browser.url = "github:MarceColl/zen-browser-flake";  
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, darwin, ... } @ inputs:
     let
       # system = "x86_64-linux";
       # pkgs = nixpkgs.legacyPackages.${system};
@@ -33,6 +36,27 @@
                     }
                 ];
             };
+        };
+
+
+        darwinConfigurations = {
+            rickvergunst = let
+                username = "rickvergunst";
+            in
+                darwin.lib.darwinSystem {
+                    system = "aarch64-darwin";
+                    modules = [
+                        ./hosts/mac/configuration.nix
+                        home-manager.darwinModules.home-manager
+                        {
+                            home-manager.useGlobalPkgs = true;
+                            home-manager.useUserPackages = true;
+                            home-manager.backupFileExtension = "backup";
+                            home-manager.extraSpecialArgs = { inherit inputs; };
+                            home-manager.users.rickvergunst = import users/${username}/home.nix;
+                        }
+                    ];
+              };
         };
     };
 }
