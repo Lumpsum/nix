@@ -13,8 +13,6 @@
         syntaxHighlighting.enable = true;
 
         initExtra = ''
-        eval "$(oh-my-posh init zsh --config ${config.home.homeDirectory}/.config/ohmyposh/base.toml)"
-
         export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
         [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -22,7 +20,9 @@
 
         source <(fzf --zsh)
 
-        eval "$(oh-my-posh init zsh)"
+        export PYENV_ROOT="$HOME/.pyenv"
+        [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init -)"
 
         function y() {
             local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

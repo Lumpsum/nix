@@ -44,14 +44,14 @@
                     {
                       "type" = "python";
                       "style" = "plain";
-                      "template" = "\ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}";
+                      "template" = " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}";
                       "background" = "transparent";
                       "foreground" = "p:carpYellow";
                     }
                     {
                       "type" = "go";
                       "style" = "plain";
-                      "template" = "\ue724 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}";
+                      "template" = " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}";
                       "background" = "transparent";
                       "foreground" = "dragonBlue";
                     }

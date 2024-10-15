@@ -35,6 +35,7 @@
         go
         presenterm
         oh-my-posh
+        uv
     ];
 
     programs.git = {
@@ -56,6 +57,7 @@
         mac = true;
     };
     tmux.enable = true;
+    ohmyposh.enable = true;
 
     programs.home-manager.enable = true;
 }
