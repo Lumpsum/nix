@@ -53,7 +53,14 @@
                       "style" = "plain";
                       "template" = " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}";
                       "background" = "transparent";
-                      "foreground" = "dragonBlue";
+                      "foreground" = "p:dragonBlue";
+                    }
+                    {
+                        "type" = "nix-shell";
+                        "style" = "plain";
+                        "background" = "transparent";
+                        "foreground" = "p:oldWhite";
+                        "template" = "{{ if matchP \".?pure\" .Type  }}via (nix-{{ .Type }}){{ end }}";
                     }
                   ];
                   "newline" = true;
