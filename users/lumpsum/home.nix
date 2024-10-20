@@ -24,43 +24,52 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.discord
-    pkgs.spotify
-    pkgs.protonup
-    pkgs.steam
-    pkgs.cue
-    pkgs.fzf
-    pkgs.lazygit
-    pkgs.jq
-    pkgs.kind
-    pkgs.opentofu
-    pkgs.pipx
-    pkgs.ripgrep
-    pkgs.tmux
-    pkgs.whatsapp-for-linux
-    pkgs.watch
-    pkgs.docker
-    pkgs.zoxide
-    pkgs.eza
-    pkgs.mangohud
-    pkgs.go
-    pkgs.unzip
-    pkgs.nodePackages.npm
-    pkgs.gnumake
-    # pkgs.go-task
-    pkgs.kubectl
-    pkgs.python3
-    pkgs.htop
-    pkgs.kitty
-    pkgs.wofi
-    pkgs.waybar
-    pkgs.pipx
-    pkgs.fd
-    (pkgs.nerdfonts.override { fonts = [ "Hack" ]; })
+        pkgs.discord
+        pkgs.spotify
+        pkgs.protonup
+        pkgs.steam
+        pkgs.cue
+        pkgs.fzf
+        pkgs.lazygit
+        pkgs.jq
+        pkgs.kind
+        pkgs.opentofu
+        pkgs.ripgrep
+        pkgs.tmux
+        pkgs.whatsapp-for-linux
+        pkgs.watch
+        pkgs.docker
+        pkgs.zoxide
+        pkgs.eza
+        pkgs.mangohud
+        pkgs.go
+        pkgs.unzip
+        pkgs.nodePackages.npm
+        pkgs.gnumake
+        pkgs.kubectl
+        pkgs.htop
+        pkgs.kitty
+        pkgs.wofi
+        pkgs.waybar
+        pkgs.fd
+        pkgs.kdePackages.qtsvg
+        pkgs.hyprshot
+        pkgs.neofetch
+        pkgs.nautilus
+        pkgs.uv
+        (pkgs.nerdfonts.override { fonts = [ "Hack" ]; })
 
-    # Custom packages
-    inputs.zen-browser.packages."x86_64-linux".specific
-  ];
+        # Custom packages
+        inputs.zen-browser.packages."x86_64-linux".specific
+    ];
+
+    gtk = {
+        enable = true;
+        theme = {
+            package = pkgs.kanagawa-gtk-theme;
+            name = "Kanagawa";
+        };
+    };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -82,10 +91,17 @@
 	userName = "Lumpsum";
   };
 
+  services.swaync = {
+    enable = true;
+  };
+
   tmux.enable = true;
   zshrc.enable = true;
   k9s.enable = true;
-  wezterm.enable = true;
+  wezterm = {
+    enable = true;
+    package = inputs.wezterm.packages."x86_64-linux".default;
+  };
   yazi.enable = true;
   ohmyposh.enable = true;
 

@@ -5,8 +5,6 @@
     # $ nix-env -qaP | grep wget
     environment.systemPackages = [
         pkgs.vim
-        pkgs.eza
-        pkgs.yazi
     ];
 
     # Auto upgrade nix package and the daemon service.

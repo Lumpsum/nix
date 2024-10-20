@@ -13,6 +13,8 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";  
+
+    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
   outputs = { self, nixpkgs, home-manager, darwin, ... } @ inputs:
