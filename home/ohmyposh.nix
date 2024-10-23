@@ -60,7 +60,7 @@
                         "style" = "plain";
                         "background" = "transparent";
                         "foreground" = "p:oldWhite";
-                        "template" = " {{ if matchP \".?pure\" .Type  }}via (nix-{{ .Env.NIXPROFILE }}){{ end }}";
+                        "template" = " {{ if matchP \".?pure\" .Type  }}via (nix{{if .Env.NIXPROFILE }}-{{.Env.NIXPROFILE}}{{end}}){{ end }}";
                     }
                   ];
                   "newline" = true;

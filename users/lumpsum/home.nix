@@ -59,15 +59,6 @@
         pkgs.hyprpaper
         (pkgs.nerdfonts.override { fonts = [ "Hack" ]; })
 
-        pkgs.gtk3
-        pkgs.glib
-        pkgs.playerctl
-        pkgs.gobject-introspection
-        (pkgs.python3.withPackages (subpkgs: with subpkgs; [
-            pip
-            pygobject3
-        ]))
-
         # Custom packages
         inputs.zen-browser.packages."x86_64-linux".specific
     ];
