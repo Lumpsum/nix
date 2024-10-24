@@ -57,6 +57,7 @@
         pkgs.neofetch
         pkgs.nautilus
         pkgs.hyprpaper
+        pkgs.ulauncher
         (pkgs.nerdfonts.override { fonts = [ "Hack" ]; })
 
         # Custom packages
