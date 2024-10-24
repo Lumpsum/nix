@@ -50,5 +50,6 @@
         "docker"
         "discord"
         "spotify"
+        "nikitabobko/tap/aerospace"
     ];
 }

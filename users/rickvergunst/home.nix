@@ -36,6 +36,7 @@
         presenterm
         oh-my-posh
         uv
+        eza
     ];
 
     programs.git = {
