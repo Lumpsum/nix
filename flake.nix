@@ -15,6 +15,8 @@
     zen-browser.url = "github:MarceColl/zen-browser-flake";  
 
     wezterm.url = "github:wez/wezterm?dir=nix";
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, nixpkgs, home-manager, darwin, ... } @ inputs:
@@ -30,6 +32,7 @@
             nixpkgs.lib.nixosSystem {
                 modules = [
                     ./hosts/home/configuration.nix
+                    inputs.stylix.nixosModules.stylix
                 
                     home-manager.nixosModules.home-manager
                     {

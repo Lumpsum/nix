@@ -44,7 +44,6 @@
         pkgs.mangohud
         pkgs.go
         pkgs.unzip
-        pkgs.nodePackages.npm
         pkgs.gnumake
         pkgs.kubectl
         pkgs.htop
@@ -58,19 +57,25 @@
         pkgs.nautilus
         pkgs.hyprpaper
         pkgs.ulauncher
-        (pkgs.nerdfonts.override { fonts = [ "Hack" ]; })
+        pkgs.ncspot
 
+        pkgs.eww
+        pkgs.pamixer
+        pkgs.alsa-utils
+        pkgs.playerctl
         # Custom packages
+        # (pkgs.nerdfonts.override { fonts = [ "Hack" ]; })
+        (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"]; })
         inputs.zen-browser.packages."x86_64-linux".specific
     ];
 
-    gtk = {
-        enable = true;
-        theme = {
-            package = pkgs.kanagawa-gtk-theme;
-            name = "Kanagawa";
-        };
-    };
+    # gtk = {
+    #     enable = true;
+    #     theme = {
+    #         package = pkgs.kanagawa-gtk-theme;
+    #         name = "Kanagawa";
+    #     };
+    # };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -90,6 +95,12 @@
 	enable = true;
 	userEmail = "vergunstje@hotmail.com";
 	userName = "Lumpsum";
+    config = {
+        init.defaultBranch = "main";
+    };
+    extraConfig = {
+        pull.rebase = true;
+    };
   };
 
   services.swaync = {
@@ -105,6 +116,11 @@
   };
   yazi.enable = true;
   ohmyposh.enable = true;
+
+  stylix.targets = {
+    wezterm.enable = false;
+    waybar.enable = false;
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
