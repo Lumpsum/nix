@@ -23,140 +23,128 @@
                     # Toggles reactive UI. This option provide for watching on disk artifacts changes and update the UI live  Defaults to false.
                     reactive = "false";
                     # Uses in_the_navy skin located in your $XDG_CONFIG_HOME/skins/in_the_navy.yaml
-                    skin = "kanagawa"; # => All clusters will use this skin unless otherwise specified in the context configuration file
+                    skin = "kanagawa";
                 };
             };
         };
         skins = {
             kanagawa = {
-                foreground = "&foreground \"#dcd7ba\"";
-                background = "&background \"#1f1f28\"";
-                black = "&black \"#090618\"";
-                blue = "&blue \"#7e9cd8\"";
-                green = "&green \"#76946a\"";
-                grey = "&grey \"#727169\"";
-                orange = "&orange \"#ffa066\"";
-                purple = "&purple \"#957fb8\"";
-                red = "&red \"#c34043\"";
-                yellow = "&yellow \"#c0a36e\"";
-                yellow_bright = "&yellow_bright \"#e6c384\"";
-
                 k9s = {
                   body = {
-                    fgColor = "*foreground";
-                    bgColor = "*background";
-                    logoColor = "*green";
+                    fgColor = "dcd7ba";
+                    bgColor = "#1f1f28";
+                    logoColor = "#76946ab";
                   };
                   prompt = {
-                    fgColor = "*foreground";
-                    bgColor = "*background";
-                    suggestColor = "*orange";
+                    fgColor = "dcd7ba";
+                    bgColor = "#1f1f28";
+                    suggestColor = "#ffa066";
                   };
                   info = {
-                    fgColor = "*grey";
-                    sectionColor = "*green";
+                    fgColor = "#727169";
+                    sectionColor = "#76946ab";
                   };
                   help = {
-                    fgColor = "*foreground";
-                    bgColor = "*background";
-                    keyColor = "*yellow";
-                    numKeyColor = "*blue";
-                    sectionColor = "*purple";
+                    fgColor = "dcd7ba";
+                    bgColor = "#1f1f28";
+                    keyColor = "#c0a36e";
+                    numKeyColor = "#7e9cd8";
+                    sectionColor = "#ffa066";
                   };
                   dialog = {
-                    fgColor = "*black";
-                    bgColor = "*background";
-                    buttonFgColor = "*foreground";
-                    buttonBgColor = "*green";
-                    buttonFocusFgColor = "*black";
-                    buttonFocusBgColor = "*blue";
-                    labelFgColor = "*orange";
-                    fieldFgColor = "*blue";
+                    fgColor = "#090618";
+                    bgColor = "#1f1f28";
+                    buttonFgColor = "dcd7ba";
+                    buttonBgColor = "#76946ab";
+                    buttonFocusFgColor = "#090618";
+                    buttonFocusBgColor = "#7e9cd8";
+                    labelFgColor = "#ffa066";
+                    fieldFgColor = "#7e9cd8";
                   };
                   frame = {
                     border = {
-                      fgColor = "*green";
-                      focusColor = "*green";
+                      fgColor = "#76946ab";
+                      focusColor = "#76946ab";
                     };
                     menu = {
-                      fgColor = "*grey";
-                      keyColor = "*yellow";
-                      numKeyColor = "*yellow";
+                      fgColor = "#727169";
+                      keyColor = "#c0a36e";
+                      numKeyColor = "#c0a36e";
                     };
                     crumbs = {
-                      fgColor = "*black";
-                      bgColor = "*green";
-                      activeColor = "*yellow";
+                      fgColor = "#090618";
+                      bgColor = "#76946ab";
+                      activeColor = "#c0a36e";
                     };
                     status = {
-                      newColor = "*blue";
-                      modifyColor = "*green";
-                      addColor = "*grey";
-                      pendingColor = "*orange";
-                      errorColor = "*red";
-                      highlightColor = "*yellow";
-                      killColor = "*purple";
-                      completedColor = "*grey";
+                      newColor = "#7e9cd8";
+                      modifyColor = "#76946ab";
+                      addColor = "#727169";
+                      pendingColor = "#ffa066";
+                      errorColor = "#c34043";
+                      highlightColor = "#c0a36e";
+                      killColor = "#ffa066";
+                      completedColor = "#727169";
                     };
                     title = {
-                      fgColor = "*blue";
-                      bgColor = "*background";
-                      highlightColor = "*purple";
-                      counterColor = "*foreground";
-                      filterColor = "*blue";
+                      fgColor = "#7e9cd8";
+                      bgColor = "#1f1f28";
+                      highlightColor = "#ffa066";
+                      counterColor = "dcd7ba";
+                      filterColor = "#7e9cd8";
                     };
                   };
                   views = {
                     charts = {
-                      bgColor = "*background";
+                      bgColor = "#1f1f28";
                       defaultDialColors = [
-                        "*green"
-                        "*red"
+                        "#76946ab"
+                        "#c34043"
                         ];
                       defaultChartColors = [
-                        "*green"
-                        "*red"
+                        "#76946ab"
+                        "#c34043"
                         ];
                     };
                     table = {
-                      fgColor = "*yellow";
-                      bgColor = "*background";
-                      cursorFgColor = "*black";
-                      cursorBgColor = "*blue";
-                      markColor = "*yellow_bright";
+                      fgColor = "#c0a36e";
+                      bgColor = "#1f1f28";
+                      cursorFgColor = "#090618";
+                      cursorBgColor = "#7e9cd8";
+                      markColor = "#e6c384";
                       header = {
-                        fgColor = "*grey";
-                        bgColor = "*background";
-                        sorterColor = "*orange";
+                        fgColor = "#727169";
+                        bgColor = "#1f1f28";
+                        sorterColor = "#ffa066";
                       };
                     };
                     xray = {
-                      fgColor = "*blue";
-                      bgColor = "*background";
-                      cursorColor = "*foreground";
-                      graphicColor = "*yellow_bright";
+                      fgColor = "#7e9cd8";
+                      bgColor = "#1f1f28";
+                      cursorColor = "dcd7ba";
+                      graphicColor = "#e6c384";
                       showIcons = "false";
                     };
                     yaml = {
-                      keyColor = "*red";
-                      colonColor = "*grey";
-                      valueColor = "*grey";
+                      keyColor = "#c34043";
+                      colonColor = "#727169";
+                      valueColor = "#727169";
                     };
                     logs = {
-                      fgColor = "*grey";
-                      bgColor = "*background";
+                      fgColor = "#727169";
+                      bgColor = "#1f1f28";
                       indicator = {
-                        fgColor = "*blue";
-                        bgColor = "*background";
-                        toggleOnColor = "*red";
-                        toggleOffColor = "*grey";
+                        fgColor = "#7e9cd8";
+                        bgColor = "#1f1f28";
+                        toggleOnColor = "#c34043";
+                        toggleOffColor = "#727169";
                       };
                     };
                     help = {
-                      fgColor = "*grey";
-                      bgColor = "*background";
+                      fgColor = "#727169";
+                      bgColor = "#1f1f28";
                       indicator = {
-                        fgColor = "*blue";
+                        fgColor = "#7e9cd8";
                       };
                     };
                   };
