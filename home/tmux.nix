@@ -29,7 +29,8 @@ in
                     {
                         plugin = kanagawa;
                         extraConfig = ''
-                        set -g @kanagawa-plugins "git battery kubernetes-context cpu-usage ram-usage time"
+                        # set -g @kanagawa-plugins "git battery kubernetes-context cpu-usage ram-usage time"
+                        set -g @kanagawa-plugins "git battery time"
                         set -g @kanagawa-show-powerline true
                         set -g @kanagawa-day-month true
                         set -g @kanagawa-git-no-repo-message ""
