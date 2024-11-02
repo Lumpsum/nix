@@ -95,11 +95,9 @@
 	enable = true;
 	userEmail = "vergunstje@hotmail.com";
 	userName = "Lumpsum";
-    config = {
-        init.defaultBranch = "main";
-    };
     extraConfig = {
         pull.rebase = true;
+        init.defaultBranch = "main";
     };
   };
 
