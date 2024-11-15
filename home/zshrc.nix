@@ -35,6 +35,8 @@
             fi
             rm -f -- "$tmp"
         }
+
+        eval "$(direnv hook zsh)"
         '';
 
         shellAliases = {

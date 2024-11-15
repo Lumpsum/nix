@@ -69,6 +69,7 @@
         pkgs.pamixer
         pkgs.alsa-utils
         pkgs.playerctl
+        pkgs.direnv
         # Custom packages
         # (pkgs.nerdfonts.override { fonts = [ "Hack" ]; })
         (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"]; })
