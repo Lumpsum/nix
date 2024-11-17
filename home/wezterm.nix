@@ -10,6 +10,10 @@
             type = lib.types.bool;
             default = false;
         };
+        wezterm.theme = lib.mkOption {
+            type = lib.types.str;
+            default = "kanagawa";
+        };
     };
 
     config = lib.mkIf config.wezterm.enable {
@@ -24,7 +28,7 @@
             config.hide_tab_bar_if_only_one_tab = true
             config.default_prog = { "zsh", "--login", "-c", "tmux attach -t dev || tmux new -s dev" }
             config.enable_wayland = false
-            config.color_scheme = 'kanagawa'
+            config.color_scheme = "${if config.wezterm.theme == "monoglow" then "monoglow" else "kanagawa"}"
             config.window_padding = {
                 left = 0,
                 right = 0,
@@ -59,6 +63,22 @@ config.keys = {
 
                 ansi = [ "#090618" "#c34043" "#76946a" "#c0a36e" "#7e9cd8" "#957fb8" "#6a9589" "#c8c093" ];
                 brights = [ "#727169" "#e82424" "#98bb6c" "#e6c384" "#7fb4ca" "#938aa9" "#7aa89f" "#dcd7ba" ];
+            };
+            monoglow = {
+                foreground = "#cccccc";
+                background = "#121212";
+
+                cursor_bg = "#c8c093";
+                cursor_fg = "#c8c093";
+                cursor_border = "#c8c093";
+
+                selection_fg = "#555555";
+                selection_bg = "#2a2a2a";
+
+                scrollbar_thumb = "#16161d";
+                split = "#16161d";
+                ansi = [ "#444444" "#555555" "#7a7a7a" "#aaaaaa" "#cccccc" "#dddddd" "f1f1f1f1" "#1bfd9c" ];
+                brights = [ "#444444" "#555555" "#7a7a7a" "#aaaaaa" "#cccccc" "#dddddd" "f1f1f1f1" "#1bfd9c" ];
             };
         };
       };

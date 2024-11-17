@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... } @ extra:
 
 {
     imports = [
@@ -56,9 +56,16 @@
     wezterm = {
         enable = true;
         mac = true;
+        theme = extra.theme;
     };
-    tmux.enable = true;
-    ohmyposh.enable = true;
+    tmux = {
+        enable = true;
+        theme = extra.theme;
+    };
+    ohmyposh = {
+        enable = true;
+        theme = extra.theme;
+    };
 
     programs.home-manager.enable = true;
 }

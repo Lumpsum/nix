@@ -20,10 +20,6 @@
   };
 
   outputs = { self, nixpkgs, home-manager, darwin, ... } @ inputs:
-    let
-      # system = "x86_64-linux";
-      # pkgs = nixpkgs.legacyPackages.${system};
-    in
     {
         nixosConfigurations = {
             lumpsum = let
@@ -36,7 +32,10 @@
                 
                     home-manager.nixosModules.home-manager
                     {
-                        home-manager.extraSpecialArgs = { inherit inputs; };
+                        home-manager.extraSpecialArgs = { 
+                            inherit inputs; 
+                            theme = "monoglow";
+                        };
                         home-manager.users.lumpsum = import users/${username}/home.nix;
                     }
                 ];
@@ -57,7 +56,10 @@
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
                             home-manager.backupFileExtension = "backup";
-                            home-manager.extraSpecialArgs = { inherit inputs; };
+                            home-manager.extraSpecialArgs = { 
+                                inherit inputs;
+                                theme = "kanagawa";
+                            };
                             home-manager.users.rickvergunst = import users/${username}/home.nix;
                         }
                     ];
