@@ -37,6 +37,7 @@
         oh-my-posh
         uv
         eza
+        direnv
     ];
 
     programs.git = {
