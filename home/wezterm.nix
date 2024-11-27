@@ -77,7 +77,6 @@ config.keys = {
 
                 scrollbar_thumb = "#16161d";
                 split = "#16161d";
-                # brights = [ "#444444" "#555555" "#7a7a7a" "#aaaaaa" "#cccccc" "#dddddd" "1f1f1f1" "#1bfd9c" ];
                 ansi = [ "2a2a2a" "#444444" "#1bfd9c" "#555555" "7a7a7a" "#aaaaaa" "#cccccc" "#dddddd" ];
                 brights = [ "2a2a2a" "#444444" "#1bfd9c" "#555555" "7a7a7a" "#aaaaaa" "#cccccc" "#dddddd" ];
             };
