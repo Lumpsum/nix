@@ -58,7 +58,7 @@
                             home-manager.backupFileExtension = "backup";
                             home-manager.extraSpecialArgs = { 
                                 inherit inputs;
-                                theme = "monoglow";
+                                theme = "kanagawa";
                             };
                             home-manager.users.rickvergunst = import users/${username}/home.nix;
                         }
