@@ -6,7 +6,7 @@
     ];
 
     home.username = "rickvergunst";
-    home.stateVersion = "24.05";
+    home.stateVersion = "24.11";
     home.homeDirectory = "/Users/rickvergunst";
 
     home.file = {
