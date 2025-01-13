@@ -69,7 +69,7 @@
       		# FIXME replace with your username@hostname
       		"lumpsum@Lumpsum" = home-manager.lib.homeManagerConfiguration {
         	pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        	extraSpecialArgs = {inherit inputs ;};
+        	extraSpecialArgs = {inherit inputs ; theme = "kanagawa"; };
         	# > Our main home-manager configuration file <
         	modules = [users/arch/home.nix];
       };

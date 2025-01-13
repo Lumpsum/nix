@@ -22,6 +22,10 @@
       # release notes.
       home.stateVersion = "24.05"; # Please read the comment before changing.
 
+      targets.genericLinux.enable = true;
+      xdg.mime.enable = true;
+      xdg.systemDirs.data = ["${config.home.homeDirectory}/.nix-profile/share/applications"];
+
       nixpkgs.overlays = [
         (final: prev: {
             _7zz = prev._7zz.override { useUasm = true; };
@@ -32,9 +36,9 @@
       # environment.
       home.packages = [
             pkgs.discord
+	        pkgs.neovim
             pkgs.spotify
             pkgs.protonup
-            pkgs.steam
             pkgs.fzf
             pkgs.lazygit
             pkgs.ripgrep
@@ -49,7 +53,8 @@
             pkgs.direnv
             # Custom packages
             # (pkgs.nerdfonts.override { fonts = [ "Hack" ]; })
-            (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"]; })
+            # (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"]; })
+            (pkgs.nerd-fonts.jetbrains-mono)
             inputs.zen-browser.packages."x86_64-linux".specific
         ];
 
@@ -92,7 +97,7 @@
       k9s.enable = true;
       wezterm = {
         enable = true;
-        package = inputs.wezterm.packages."x86_64-linux".default;
+        package = pkgs.wezterm;
         theme = extra.theme; 
       };
       yazi.enable = true;
