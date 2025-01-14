@@ -73,7 +73,7 @@
                     {
                       "type" = "git";
                       "style" = "plain";
-                      "template" = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:dragonBlue>{{ if gt .Behind 0 }}\u21e3{{ end }}{{ if gt .Ahead 0 }}\u21e1{{ end }}</>";
+                      "template" = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}<p:dragonBlue>{{ if gt .Behind 0 }}\u21e3{{ end }}{{ if gt .Ahead 0 }}\u21e1{{ end }}</>";
                       "properties" = {
                         "branch_icon" = "";
                         "commit_icon" = "@";
@@ -85,14 +85,14 @@
                     {
                       "type" = "python";
                       "style" = "plain";
-                      "template" = " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}";
+                      "template" = "  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}";
                       "background" = "transparent";
                       "foreground" = "p:python";
                     }
                     {
                       "type" = "go";
                       "style" = "plain";
-                      "template" = " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}";
+                      "template" = "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}";
                       "background" = "transparent";
                       "foreground" = "p:go";
                     }
