@@ -17,9 +17,11 @@
     wezterm.url = "github:wez/wezterm?dir=nix";
 
     stylix.url = "github:danth/stylix";
+
+    nvim-nix.url = "github:Lumpsum/nvim-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, darwin, nvim-nix, ... } @ inputs:
     {
         nixosConfigurations = {
             lumpsum = let
@@ -65,15 +67,22 @@
                     ];
               };
         };
-	homeConfigurations = {
+	    homeConfigurations = {
       		# FIXME replace with your username@hostname
       		"lumpsum@Lumpsum" = home-manager.lib.homeManagerConfiguration {
-        	pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        	extraSpecialArgs = {inherit inputs ; theme = "kanagawa"; };
-        	# > Our main home-manager configuration file <
-        	modules = [users/arch/home.nix];
-      };
-    };
+                pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+                extraSpecialArgs = {
+                    inherit inputs ; theme = "kanagawa"; 
+                };
+                # > Our main home-manager configuration file <
+                modules = [
+                    users/arch/home.nix
+                    {
+                        home.packages = [ nvim-nix.packages.x86_64-linux.default ];
+                    }
+                ];
+            };
+        };
 
     };
 }

@@ -36,7 +36,6 @@
       # environment.
       home.packages = [
             pkgs.discord
-	        pkgs.neovim
             pkgs.spotify
             pkgs.protonup
             pkgs.fzf
@@ -69,14 +68,14 @@
       # Home Manager is pretty good at managing dotfiles. The primary way to manage
       # plain files is through 'home.file'.
       home.file = {
-        ".config/nvim" = {
-            source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
-        };
+        # ".config/nvim" = {
+        #     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
+        # };
       };
 
       home.sessionVariables = {
-        EDITOR = "nvim";
-        BROWSER = "firefox";
+        # EDITOR = "nvim";
+        # BROWSER = "firefox";
       };
 
       programs.git = {
