@@ -48,7 +48,6 @@
         "rectangle"
         "slack"
         "whatsapp"
-        "docker"
         "discord"
         "spotify"
         "nikitabobko/tap/aerospace"

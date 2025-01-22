@@ -38,6 +38,7 @@
         uv
         eza
         direnv
+        podman
     ];
 
     programs.git = {
