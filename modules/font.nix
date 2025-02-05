@@ -9,16 +9,17 @@
       # Fonts
       fonts = {
           packages = with pkgs; [
-            (nerdfonts.override { fonts = [ "Hack" ]; })
+            nerd-fonts.jetbrains-mono
+            # (nerdfonts.override { fonts = [ "Hack" ]; })
           ];
 
-          fontconfig = {
-            defaultFonts = {
-              monospace = [ "Hack Nerd Font Mono" ];
-              sansSerif = [ "Hack Nerd Font" ];
-              serif = [ "Hack Nerd Font" ];
-            };
-          };
+          # fontconfig = {
+            # defaultFonts = {
+              # monospace = [ "Hack Nerd Font Mono" ];
+              # sansSerif = [ "Hack Nerd Font" ];
+              # serif = [ "Hack Nerd Font" ];
+            # };
+          # };
       };
     };
 }

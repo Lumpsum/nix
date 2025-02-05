@@ -9,7 +9,9 @@
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true; boot.loader.grub.device = "/dev/sdc"; boot.loader.grub.useOSProber = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
@@ -37,11 +39,8 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
   services.displayManager.sddm.enable = true;
-  hyprland.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = { layout = "us"; variant = "";
@@ -51,7 +50,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false; security.rtkit.enable = true; services.pipewire = {
+  services.pulseaudio.enable = false; security.rtkit.enable = true; services.pipewire = {
     enable = true; alsa.enable = true; alsa.support32Bit = true; pulse.enable = true;
     # If you want to use JACK applications, uncomment this jack.enable = true;
 
@@ -93,42 +92,42 @@
   };
 
   # Stylix
-  stylix = {
-        enable = true;
-        image = ./wallpaper.png;
-        base16Scheme = {
-            base00 = "1F1F28";
-            base01 = "2A2A37";
-            base02 = "223249";
-            base03 = "727169";
-            base04 = "C8C093";
-            base05 = "DCD7BA";
-            base06 = "938AA9";
-            base07 = "363646";
-            base08 = "C34043";
-            base09 = "FFA066";
-            base0A = "DCA561";
-            base0B = "98BB6C";
-            base0C = "7FB4CA";
-            base0D = "7E9CD8";
-            base0E = "957FB8";
-            base0F = "D27E99";
-        };
-        cursor = {
-            package = pkgs.bibata-cursors;
-            name = "Bibata-Modern-Ice";
-        };
-        fonts = {
+  #stylix = {
+  #      enable = true;
+  #      image = ./wallpaper.png;
+  #      base16Scheme = {
+  #          base00 = "1F1F28";
+  #          base01 = "2A2A37";
+  #          base02 = "223249";
+  #          base03 = "727169";
+  #          base04 = "C8C093";
+  #          base05 = "DCD7BA";
+  #          base06 = "938AA9";
+  #          base07 = "363646";
+  #          base08 = "C34043";
+  #          base09 = "FFA066";
+  #          base0A = "DCA561";
+  #          base0B = "98BB6C";
+  #          base0C = "7FB4CA";
+  #          base0D = "7E9CD8";
+  #          base0E = "957FB8";
+  #         base0F = "D27E99";
+  #      };
+  #      cursor = {
+  #          package = pkgs.bibata-cursors;
+  #          name = "Bibata-Modern-Ice";
+  #      };
+  #      fonts = {
             # monospace = {
             #     package = pkgs.nerdfonts.override {fonts = ["Hack"]; };
             #     name = "Hack Nerd Font Mono";
             # };
-            monospace = {
-                package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"]; };
-                name = "JetBrainsMono Nerd Font Mono";
-            };
-            serif = config.stylix.fonts.monospace;
-            sansSerif = config.stylix.fonts.monospace;
+  #          monospace = {
+  #              package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"]; };
+  #              name = "JetBrainsMono Nerd Font Mono";
+  #          };
+  #          serif = config.stylix.fonts.monospace;
+  #          sansSerif = config.stylix.fonts.monospace;
             # sansSerif = {
             #     package = pkgs.dejavu_fonts;
             #     name = "DejaVu Sans";
@@ -137,8 +136,8 @@
             #     package = pkgs.dejavu_fonts;
             #     name = "DejaVu Serif";
             # };
-        };
-    };
+  #      };
+  #  };
 
   # Some programs need SUID wrappers, can be configured further or are started in user sessions. programs.mtr.enable = true; programs.gnupg.agent = {
   #   enable = true; enableSSHSupport = true;

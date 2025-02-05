@@ -36,6 +36,7 @@
                     {
                         home-manager.extraSpecialArgs = { 
                             inherit inputs; 
+			    inherit nvim-nix;
                             theme = "kanagawa";
                         };
                         home-manager.users.lumpsum = import users/${username}/home.nix;
