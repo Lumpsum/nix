@@ -62,6 +62,7 @@
                             home-manager.extraSpecialArgs = { 
                                 inherit inputs;
                                 theme = "kanagawa";
+                                nvim-nix = nvim-nix.packages.aarch64-darwin.default;
                             };
                             home-manager.users.rickvergunst = import users/${username}/home.nix;
                         }
