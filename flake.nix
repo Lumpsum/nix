@@ -50,7 +50,7 @@
             rickvergunst = let
                 username = "rickvergunst";
             in
-                darwin.lib.darwinSystem {
+                darwin.lib.darwinSystem rec {
                     system = "aarch64-darwin";
                     modules = [
                         ./hosts/mac/configuration.nix
@@ -74,7 +74,8 @@
       		"lumpsum@Lumpsum" = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
                 extraSpecialArgs = {
-                    inherit inputs ; theme = "kanagawa"; 
+                    inherit inputs;
+                    theme = "kanagawa"; 
                 };
                 # > Our main home-manager configuration file <
                 modules = [

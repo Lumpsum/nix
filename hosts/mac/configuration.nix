@@ -33,13 +33,8 @@
     };
 
     homebrew.enable = true;
-    homebrew.taps = [
-        {
-            name = "zen-browser/browser";
-            clone_target = "https://github.com/zen-browser/desktop.git";
-        }
-        ];
-        homebrew.brews = [
+    homebrew.taps = [];
+    homebrew.brews = [
         "helm"
     ];
     homebrew.casks = [
@@ -52,5 +47,6 @@
         "spotify"
         "nikitabobko/tap/aerospace"
         "ghostty"
+        "zen-browser"
     ];
 }

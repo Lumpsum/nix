@@ -33,6 +33,7 @@
         pkgs.direnv
         pkgs.podman
         extra.nvim-nix
+        pkgs.utm
     ];
 
     programs.git = {
