@@ -53,7 +53,16 @@
             # Custom packages
             inputs.zen-browser.packages."x86_64-linux".specific
    	        nvim-nix.packages."x86_64-linux".default
+
+            pkgs.libvirt-glib
         ];
+
+    dconf.settings = {
+        "org/virt-manager/virt-manager/connections" = {
+            autoconnect = ["qemu:///system"];
+            uris = ["qemu:///system"];
+        };
+    };
 
         # gtk = {
         #     enable = true;

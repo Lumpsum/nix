@@ -62,9 +62,11 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   programs.zsh.enable = true;
-  users.users.lumpsum = { isNormalUser = true; description = "Rick Vergunst"; extraGroups = [ "networkmanager" "wheel" ]; packages = with pkgs; [
-    #  thunderbird
-    ];
+  users.users.lumpsum = { 
+      isNormalUser = true; 
+      description = "Rick Vergunst"; 
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" ]; 
+      packages = with pkgs; [];
     shell = pkgs.zsh;
   };
   users.extraUsers.lumpsum.extraGroups = [ "audio" ];
@@ -90,6 +92,12 @@
   environment.variables = {
 	EDITOR = "nvim";
   };
+
+  # Virt manager
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["lumpsum"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
 
   # Stylix
   #stylix = {
