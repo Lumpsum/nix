@@ -26,6 +26,10 @@
       xdg.mime.enable = true;
       xdg.systemDirs.data = ["${config.home.homeDirectory}/.nix-profile/share/applications"];
 
+      nixGL.packages = import <nixgl> { inherit pkgs; };
+      nixGL.defaultWrapper = "mesa";
+      nixGL.offloadWrapper = "intel";
+
       nixpkgs.overlays = [
         (final: prev: {
             _7zz = prev._7zz.override { useUasm = true; };
@@ -42,7 +46,6 @@
             pkgs.lazygit
             pkgs.ripgrep
             pkgs.tmux
-            pkgs.whatsapp-for-linux
             pkgs.watch
             pkgs.zoxide
             pkgs.eza
@@ -55,15 +58,42 @@
             # (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"]; })
             (pkgs.nerd-fonts.jetbrains-mono)
             inputs.zen-browser.packages."x86_64-linux".specific
+            pkgs.signal-desktop
         ];
 
-        # gtk = {
-        #     enable = true;
-        #     theme = {
-        #         package = pkgs.kanagawa-gtk-theme;
-        #         name = "Kanagawa";
-        #     };
-        # };
+        programs.zsh.enable = true;
+
+        programs.ghostty = {
+            enable = true;
+            package = config.lib.nixGL.wrap pkgs.ghostty;
+        };
+
+        xdg.desktopEntries."com.mitchellh.ghostty" = {
+            name = "Ghostty";
+            type = "Application";
+            comment = "A terminal emulator";
+            exec = "ghostty";
+            icon = "com.mitchellh.ghostty";
+            terminal = false;
+            startupNotify = true;
+            categories = [ "System" "TerminalEmulator" ];
+            settings = {
+              Keywords = "terminal;tty;pty;";
+              X-GNOME-UsesNotifications = "true";
+              X-TerminalArgExec = "-e";
+              X-TerminalArgTitle = "--title=";
+              X-TerminalArgAppId = "--class=";
+              X-TerminalArgDir = "--working-directory=";
+              X-TerminalArgHold = "--wait-after-command";
+            };
+
+            actions = {
+              new-window = {
+                name = "New Window";
+                exec = "ghostty";
+              };
+            };
+          };
 
       # Home Manager is pretty good at managing dotfiles. The primary way to manage
       # plain files is through 'home.file'.
@@ -74,9 +104,15 @@
       };
 
       home.sessionVariables = {
-        # EDITOR = "nvim";
+        EDITOR = "nvim";
         # BROWSER = "firefox";
       };
+
+      home.sessionPath = [
+        "$HOME/.local/bin"
+        "$HOME/bin"
+        "$HOME/.nix-profile/bin"
+      ];
 
       programs.git = {
         enable = true;
@@ -94,11 +130,6 @@
       };
       zshrc.enable = true;
       k9s.enable = true;
-      wezterm = {
-        enable = true;
-        package = pkgs.wezterm;
-        theme = extra.theme; 
-      };
       yazi.enable = true;
       ohmyposh = {
         enable = true;
