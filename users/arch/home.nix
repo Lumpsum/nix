@@ -57,7 +57,7 @@
             # (pkgs.nerdfonts.override { fonts = [ "Hack" ]; })
             # (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"]; })
             (pkgs.nerd-fonts.jetbrains-mono)
-            inputs.zen-browser.packages."x86_64-linux".specific
+            inputs.zen-browser.packages."x86_64-linux".default
             pkgs.signal-desktop
         ];
 
