@@ -48,5 +48,7 @@
         "nikitabobko/tap/aerospace"
         "ghostty"
         "zen-browser"
+        "signal"
+        "vial"
     ];
 }

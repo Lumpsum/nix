@@ -1,6 +1,7 @@
 { lib, config, ... }:
 
 {
+
     options = {
         yazi.enable = lib.mkEnableOption "enable yazi";
     };
@@ -9,6 +10,15 @@
       programs.yazi = {
         enable = true;
         enableZshIntegration = true;
+        flavors = {
+            kanagawa = ./flavors/kanagawa;
+        };
+        theme = {
+            flavor = {
+                dark = "kanagawa";
+                light = "kanagawa";
+            };
+        };
       };
     };
 }
