@@ -12,11 +12,12 @@
         enableZshIntegration = true;
         flavors = {
             kanagawa = ./flavors/kanagawa;
+            ashen = ./flavors/ashen;
         };
         theme = {
             flavor = {
-                dark = "kanagawa";
-                light = "kanagawa";
+                dark = "ashen";
+                light = "ashen";
             };
         };
       };

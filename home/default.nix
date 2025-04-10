@@ -8,5 +8,6 @@
         ./yazi.nix
         ./wezterm.nix
         ./ohmyposh.nix
+        ./ghostty.nix
     ];
 }

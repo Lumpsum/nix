@@ -63,6 +63,7 @@
         enable = true;
         theme = extra.theme;
     };
+    ghostty.enable = true;
 
     programs.home-manager.enable = true;
 }
