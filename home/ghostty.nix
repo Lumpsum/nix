@@ -18,7 +18,7 @@ font-size = 20
 
 cursor-style = bar
 
-theme = Kanagawa Wave";
+theme = ashen";
         };
     };
 }

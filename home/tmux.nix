@@ -36,7 +36,6 @@ in
     config = lib.mkIf config.tmux.enable {
         programs.tmux = {
             enable = true;
-            terminal = "tmux-256-color";
             plugins = with pkgs;
                 [
                     tmuxPlugins.vim-tmux-navigator
@@ -102,7 +101,7 @@ in
                             set -g @kanagawa-git-no-repo-message ""
                             set -g @kanagawa-time-format "%F %R"
                             set -g @kanagawa-show-fahrenheit false
-                            set -g @kanagawa-ignore-window-colors false
+                            set -g @kanagawa-ignore-window-colors true
                             set -g @kanagawa-show-empty-plugins false
                             set -g @kanagawa-left-icon-padding 0
                             set -g @kanagawa-powerline-bg-transparent true
@@ -111,8 +110,8 @@ in
                     )
                 ];
             extraConfig = ''
-            set -sg default-terminal "screen-256color"
-            set -sa terminal-overrides ",xterm*:Tc"
+            set -sg default-terminal "tmux-256color"
+            set -sa terminal-overrides ",xterm*:RGB"
 
             set -g prefix C-a
             unbind C-b

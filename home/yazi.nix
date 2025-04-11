@@ -16,6 +16,8 @@
         };
         theme = {
             flavor = {
+                # dark = "kanagawa";
+                # light = "kanagawa";
                 dark = "ashen";
                 light = "ashen";
             };
