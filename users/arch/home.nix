@@ -1,5 +1,18 @@
-{ config, pkgs, inputs, ... } @ extra:
+{ config, pkgs, inputs, nvim-nix, ... } @ extra: let 
+    oldnvim = nvim-nix.packages.x86_64-linux.default;
 
+    inherit (oldnvim.passthru) utils;
+    nvim = oldnvim.override (prev: {
+        name = "nvim";
+        packageDefinitions = prev.packageDefinitions // {
+            nvim = utils.mergeCatDefs prev.packageDefinitions.nvim ({pkgs, ... }: {
+                categories = {
+                    colorscheme = extra.theme;
+                };
+            });
+        };
+    });
+in
 {
   imports = [
     ../../home
@@ -58,7 +71,8 @@
             # (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"]; })
             (pkgs.nerd-fonts.jetbrains-mono)
             inputs.zen-browser.packages."x86_64-linux".default
-            pkgs.signal-desktop
+            pkgs.signal-desktop-bin
+            nvim
         ];
 
         programs.zsh.enable = true;

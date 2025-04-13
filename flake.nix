@@ -12,11 +12,14 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    zen-browser.url = "github:MarceColl/zen-browser-flake";  
+    zen-browser = {
+        url = "github:0xc000022070/zen-browser-flake";  
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    wezterm.url = "github:wez/wezterm?dir=nix";
+    # wezterm.url = "github:wez/wezterm?dir=nix";
 
-    stylix.url = "github:danth/stylix";
+    # stylix.url = "github:danth/stylix";
 
     nvim-nix.url = "github:Lumpsum/nvim-nix";
   };
@@ -36,7 +39,7 @@
                     {
                         home-manager.extraSpecialArgs = { 
                             inherit inputs; 
-			    inherit nvim-nix;
+			                inherit nvim-nix;
                             theme = "kanagawa";
                         };
                         home-manager.users.lumpsum = import users/${username}/home.nix;
@@ -75,14 +78,15 @@
                 pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
                 extraSpecialArgs = {
                     inherit inputs;
-                    theme = "kanagawa"; 
+			        inherit nvim-nix;
+                    theme = "ashen"; 
                 };
                 # > Our main home-manager configuration file <
                 modules = [
                     users/arch/home.nix
-                    {
-                        home.packages = [ nvim-nix.packages.x86_64-linux.default ];
-                    }
+                    # {
+                    #     home.packages = [ nvim-nix.packages.x86_64-linux.default ];
+                    # }
                 ];
             };
         };
