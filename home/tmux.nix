@@ -57,7 +57,7 @@ in
                             set -g @dracula-time-format "%F %R"
                             set -g @dracula-show-fahrenheit false
                             set -g @dracula-show-empty-plugins false
-                            set -g @dracula-ignore-window-colors false
+                            set -g @dracula-ignore-window-colors true
                             set -g @dracula-show-left-icon session
                             set -g @dracula-show-empty-plugins false
                             set -g @dracula-left-icon-padding 0
@@ -90,7 +90,86 @@ in
                             "
                             '';
                         }
-                    else 
+                    else  
+                    (if (config.tmux.theme == "ashen") then
+                        {
+                            plugin = dracula;
+                            extraConfig = ''
+                            set -g @dracula-plugins "git battery time"
+
+                            set -g @dracula-time-colors "red_flame fg"
+                            set -g @dracula-battery-colors "orange_blaze fg"
+                            set -g @dracula-git-colors "orange_golden fg"
+
+                            set -g @dracula-show-powerline true 
+                            set -g @dracula-day-month true
+                            set -g @dracula-git-no-repo-message ""
+                            set -g @dracula-time-format "%F %R"
+                            set -g @dracula-show-fahrenheit false
+                            set -g @dracula-show-empty-plugins false
+                            set -g @dracula-ignore-window-colors true
+                            set -g @dracula-show-left-icon session
+                            set -g @dracula-show-empty-plugins false
+                            set -g @dracula-left-icon-padding 0
+                            set -g @dracula-powerline-bg-transparent true
+
+                            set -g @dracula-colors "
+                            red_flame='#C53030'
+                            red_glowing='#DF6464'
+                            red_ember='#B14242'
+
+                            orange_glow='#D87C4A' 
+                            orange_blaze='#C4693D' 
+                            orange_smolder='#E49A44'
+                            
+                            orange_golden='#E5A72A'
+                            
+                            red_kindling='#BD4C4C' 
+                            red_burnt_crimson='#A84848' 
+                            red_brick='#853D3D' 
+                            red_deep_ember='#7A2E2E' 
+                            red_ashen='#6F2929' 
+                            
+                            blue='#4A8B8B' 
+                            blue_dark='#3A6E6E' 
+                            
+                            green_light='#629C7D'
+                            green='#1E6F54'
+
+                            gray1='#e5e5e5'
+                            gray2='#d5d5d5'
+                            gray3='#b4b4b4'
+                            gray4='#a7a7a7'
+                            gray5='#949494'
+                            gray6='#737373'
+                            gray7='#535353'
+                            gray8='#323232'
+                            gray9='#212121'
+                            gray10='#1d1d1d'
+                            bg='#121212'
+                            fg='#ffffff'
+
+                            # Text
+                            white='#f8f8f2'
+
+                            # Text on first window
+                            dark_gray='#f8f8f2'
+
+                            # Background
+                            gray='#121212'
+
+                            # Active pane
+                            dark_purple='#E5A72A'
+
+                            # First window
+                            green='#DF6464'
+
+                            # Command active color
+                            yellow='#D87C4A'
+                            "
+                            '';
+                        }
+                    else
                         {
                             plugin = kanagawa;
                             extraConfig = ''
@@ -107,7 +186,7 @@ in
                             set -g @kanagawa-powerline-bg-transparent true
                             '';
                         }
-                    )
+                    ))
                 ];
             extraConfig = ''
             set -sg default-terminal "tmux-256color"

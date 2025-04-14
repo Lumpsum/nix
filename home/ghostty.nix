@@ -8,6 +8,10 @@
             type = lib.types.bool;
             default = false;
         };
+        ghostty.theme = lib.mkOption {
+            type = lib.types.str;
+            default = "kanagawa";
+        };
     };
 
     config = lib.mkIf config.ghostty.enable {
@@ -23,7 +27,7 @@ font-size = 20
 
 cursor-style = bar
 
-theme = Kanagawa Wave";
+theme = ${if config.ghostty.theme == "kanagawa" then "Kanagawa Wave" else "ashen"}";
             };
             } else {};
     };

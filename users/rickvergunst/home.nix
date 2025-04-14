@@ -57,7 +57,8 @@
     # };
     tmux = {
         enable = true;
-        theme = extra.theme;
+        # theme = extra.theme;
+        theme = "ashen";
     };
     ohmyposh = {
         enable = true;
@@ -66,6 +67,7 @@
     ghostty = {
         enable = true;
         mac = true;
+        theme = "ashen";
     };
 
     programs.home-manager.enable = true;
