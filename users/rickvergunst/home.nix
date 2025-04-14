@@ -50,11 +50,11 @@
     k9s.enable = true;
     yazi.enable = true;
     zshrc.enable = true;
-    wezterm = {
-        enable = true;
-        mac = true;
-        theme = extra.theme;
-    };
+    # wezterm = {
+    #     enable = true;
+    #     mac = true;
+    #     theme = extra.theme;
+    # };
     tmux = {
         enable = true;
         theme = extra.theme;
@@ -63,7 +63,10 @@
         enable = true;
         theme = extra.theme;
     };
-    ghostty.enable = true;
+    ghostty = {
+        enable = true;
+        mac = true;
+    };
 
     programs.home-manager.enable = true;
 }

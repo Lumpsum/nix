@@ -4,21 +4,27 @@
 
     options = {
         ghostty.enable = lib.mkEnableOption "enable ghostty config";
+        ghostty.mac = lib.mkOption {
+            type = lib.types.bool;
+            default = false;
+        };
     };
 
     config = lib.mkIf config.ghostty.enable {
-        home.file."${config.xdg.configHome}/ghostty/themes" = {
-            source = ./ghostty/themes;
-            recursive = true;
-        };
+        home = if config.ghostty.mac == true then {
+            file."${config.xdg.configHome}/ghostty/themes" = {
+                source = ./ghostty/themes;
+                recursive = true;
+            };
 
-        home.file."${config.xdg.configHome}/ghostty/config" = {
-            source = builtins.toFile "test.txt" "font-family = JetBrains Mono
+            file."${config.xdg.configHome}/ghostty/config" = {
+                source = builtins.toFile "test.txt" "font-family = JetBrains Mono
 font-size = 20
 
 cursor-style = bar
 
-theme = ashen";
-        };
+theme = Kanagawa Wave";
+            };
+            } else {};
     };
 }
