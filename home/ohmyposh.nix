@@ -28,7 +28,7 @@
                     } else
                         if config.ohmyposh.theme == "ashen" then
                         {
-                            "path" = "#E49A44";
+                            "path" = "#C4693D";
                             "git" = "#4A8B8B";
                             "python" = "#C4693D";
                             "go" = "#C4693D";
