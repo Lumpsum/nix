@@ -25,30 +25,40 @@
                         "exitcode1" = "#ffb3ba";
                         "exitcode0" = "#cccccc";
                         "secondary" = "#cccccc";
-                    } 
-                else
-                    { 
-                        "python" = "#E6C384";
-                        "path" = "#7E9CD8";
-                        "git" = "#98BB6C";
-                        "go" = "#658594";
-                        "nix" = "#C8C093";
-                        "executiontime" = "#DCD7BA";
-                        "exitcode1" = "#E82424";
-                        "exitcode0" = "#ffffff";
-                        "secondary" = "#C8C093";
+                    } else
+                        if config.ohmyposh.theme == "ashen" then
+                        {
+                            "path" = "#E49A44";
+                            "git" = "#4A8B8B";
+                            "python" = "#C4693D";
+                            "go" = "#C4693D";
+                            "nix" = "#E5A72A";
+                            "executiontime" = "#a7a7a7";
+                            "exitcode1" = "#C53030";
+                            "exitcode0" = "#d5d5d5";
+                            "secondary" = "#d5d5d5";
+                        } else {
+                            "python" = "#E6C384";
+                            "path" = "#7E9CD8";
+                            "git" = "#98BB6C";
+                            "go" = "#658594";
+                            "nix" = "#C8C093";
+                            "executiontime" = "#DCD7BA";
+                            "exitcode1" = "#E82424";
+                            "exitcode0" = "#ffffff";
+                            "secondary" = "#C8C093";
 
-                        "fujiGray" = "#727169";
-                        "sumiInk0" = "#16161D";
-                        "sumiInk1" = "#181820";
-                        "sumiInk2" = "#1a1a22";
-                        "sumiInk3" = "#1F1F28";
-                        "sumiInk4" = "#2A2A37";
-                        "sumiInk5" = "#363646";
-                        "sumiInk6" = "#54546D";
-                        "waveBlue1" = "#223249";
-                        "waveBlue2" = "#2D4F67";
-                    };
+                            "fujiGray" = "#727169";
+                            "sumiInk0" = "#16161D";
+                            "sumiInk1" = "#181820";
+                            "sumiInk2" = "#1a1a22";
+                            "sumiInk3" = "#1F1F28";
+                            "sumiInk4" = "#2A2A37";
+                            "sumiInk5" = "#363646";
+                            "sumiInk6" = "#54546D";
+                            "waveBlue1" = "#223249";
+                            "waveBlue2" = "#2D4F67";
+                        };
             in
             {
               "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";

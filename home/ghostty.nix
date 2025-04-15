@@ -29,6 +29,20 @@ cursor-style = bar
 
 theme = ${if config.ghostty.theme == "kanagawa" then "Kanagawa Wave" else "ashen"}";
             };
-            } else {};
+            } else {
+            file."${config.xdg.configHome}/ghostty/themes" = {
+                source = ./ghostty/themes;
+                recursive = true;
+            };
+
+            file."${config.xdg.configHome}/ghostty/config" = {
+                source = builtins.toFile "test.txt" "font-family = JetBrains Mono
+font-size = 20
+
+cursor-style = bar
+
+theme = ${if config.ghostty.theme == "kanagawa" then "Kanagawa Wave" else "ashen"}";
+            };
     };
+};
 }

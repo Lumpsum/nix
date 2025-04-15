@@ -40,8 +40,8 @@ in
       xdg.systemDirs.data = ["${config.home.homeDirectory}/.nix-profile/share/applications"];
 
       nixGL.packages = import <nixgl> { inherit pkgs; };
-      nixGL.defaultWrapper = "mesa";
-      nixGL.offloadWrapper = "intel";
+      # nixGL.defaultWrapper = "mesa";
+      # nixGL.offloadWrapper = "intel";
 
       nixpkgs.overlays = [
         (final: prev: {
@@ -77,37 +77,37 @@ in
 
         programs.zsh.enable = true;
 
-        programs.ghostty = {
-            enable = true;
-            package = config.lib.nixGL.wrap pkgs.ghostty;
-        };
+        # programs.ghostty = {
+        #     enable = true;
+        #     package = config.lib.nixGL.wrap pkgs.ghostty;
+        # };
 
-        xdg.desktopEntries."com.mitchellh.ghostty" = {
-            name = "Ghostty";
-            type = "Application";
-            comment = "A terminal emulator";
-            exec = "ghostty";
-            icon = "com.mitchellh.ghostty";
-            terminal = false;
-            startupNotify = true;
-            categories = [ "System" "TerminalEmulator" ];
-            settings = {
-              Keywords = "terminal;tty;pty;";
-              X-GNOME-UsesNotifications = "true";
-              X-TerminalArgExec = "-e";
-              X-TerminalArgTitle = "--title=";
-              X-TerminalArgAppId = "--class=";
-              X-TerminalArgDir = "--working-directory=";
-              X-TerminalArgHold = "--wait-after-command";
-            };
+        # xdg.desktopEntries."com.mitchellh.ghostty" = {
+        #     name = "Ghostty";
+        #     type = "Application";
+        #     comment = "A terminal emulator";
+        #     exec = "ghostty";
+        #     icon = "com.mitchellh.ghostty";
+        #     terminal = false;
+        #     startupNotify = true;
+        #     categories = [ "System" "TerminalEmulator" ];
+        #     settings = {
+        #       Keywords = "terminal;tty;pty;";
+        #       X-GNOME-UsesNotifications = "true";
+        #       X-TerminalArgExec = "-e";
+        #       X-TerminalArgTitle = "--title=";
+        #       X-TerminalArgAppId = "--class=";
+        #       X-TerminalArgDir = "--working-directory=";
+        #       X-TerminalArgHold = "--wait-after-command";
+        #     };
 
-            actions = {
-              new-window = {
-                name = "New Window";
-                exec = "ghostty";
-              };
-            };
-          };
+         #    actions = {
+         #      new-window = {
+         #        name = "New Window";
+         #        exec = "ghostty";
+         #      };
+         #    };
+         # };
 
       # Home Manager is pretty good at managing dotfiles. The primary way to manage
       # plain files is through 'home.file'.
@@ -148,6 +148,10 @@ in
       ohmyposh = {
         enable = true;
         theme = extra.theme; 
+      };
+      ghostty = {
+        enable = true;
+        theme = extra.theme;
       };
 
       # Let Home Manager install and manage itself.
