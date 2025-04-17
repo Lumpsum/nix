@@ -64,8 +64,9 @@
                             home-manager.backupFileExtension = "backup";
                             home-manager.extraSpecialArgs = { 
                                 inherit inputs;
-                                theme = "kanagawa";
-                                nvim-nix = nvim-nix.packages.aarch64-darwin.default;
+                                inherit nvim-nix;
+                                theme = "ashen";
+                                # nvim-nix = nvim-nix.packages.aarch64-darwin.default;
                             };
                             home-manager.users.rickvergunst = import users/${username}/home.nix;
                         }

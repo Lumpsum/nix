@@ -1,5 +1,18 @@
-{ config, pkgs, inputs, ... } @ extra:
+{ config, pkgs, inputs, nvim-nix, ... } @ extra: let
+    oldnvim = nvim-nix.packages.aarch64-darwin.default;
 
+    inherit (oldnvim.passthru) utils;
+    nvim = oldnvim.override (prev: {
+        name = "nvim";
+        packageDefinitions = prev.packageDefinitions // {
+            nvim = utils.mergeCatDefs prev.packageDefinitions.nvim ({pkgs, ... }: {
+                categories = {
+                    colorscheme = extra.theme;
+                };
+            });
+        };
+    });
+in
 {
     imports = [
       ../../home
@@ -32,8 +45,8 @@
         pkgs.eza
         pkgs.direnv
         pkgs.podman
-        extra.nvim-nix
         pkgs.utm
+        nvim
     ];
 
     programs.git = {
@@ -57,8 +70,7 @@
     # };
     tmux = {
         enable = true;
-        # theme = extra.theme;
-        theme = "ashen";
+        theme = extra.theme;
     };
     ohmyposh = {
         enable = true;
@@ -67,7 +79,7 @@
     ghostty = {
         enable = true;
         mac = true;
-        theme = "ashen";
+        theme = extra.theme;
     };
 
     programs.home-manager.enable = true;
