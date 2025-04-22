@@ -29,10 +29,10 @@
                         if config.ohmyposh.theme == "ashen" then
                         {
                             "path" = "#C4693D";
-                            "git" = "#4A8B8B";
-                            "python" = "#C4693D";
-                            "go" = "#C4693D";
-                            "nix" = "#E5A72A";
+                            "git" = "#e5e5e5";
+                            "python" = "#949494";
+                            "go" = "#949494";
+                            "nix" = "#323232";
                             "executiontime" = "#a7a7a7";
                             "exitcode1" = "#C53030";
                             "exitcode0" = "#d5d5d5";
