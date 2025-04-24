@@ -144,7 +144,10 @@ in
       };
       zshrc.enable = true;
       k9s.enable = true;
-      yazi.enable = true;
+      yazi = {
+          enable = true;
+          theme = extra.theme;
+      };
       ohmyposh = {
         enable = true;
         theme = extra.theme; 

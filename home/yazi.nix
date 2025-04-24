@@ -4,6 +4,10 @@
 
     options = {
         yazi.enable = lib.mkEnableOption "enable yazi";
+        yazi.theme = lib.mkOption {
+            type = lib.types.str;
+            default = "kanagawa";
+        };
     };
 
     config = lib.mkIf config.yazi.enable {
@@ -16,10 +20,8 @@
         };
         theme = {
             flavor = {
-                # dark = "kanagawa";
-                # light = "kanagawa";
-                dark = "ashen";
-                light = "ashen";
+                dark = config.yazi.theme;
+                light = config.yazi.theme;
             };
         };
       };
