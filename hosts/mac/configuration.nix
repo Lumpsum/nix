@@ -51,5 +51,6 @@
         "zen-browser"
         "signal"
         "vial"
+        "tailscale"
     ];
 }

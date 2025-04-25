@@ -61,7 +61,10 @@ in
     };
 
     k9s.enable = true;
-    yazi.enable = true;
+    yazi = {
+        enable = true;
+        theme = extra.theme;
+    };
     zshrc.enable = true;
     # wezterm = {
     #     enable = true;

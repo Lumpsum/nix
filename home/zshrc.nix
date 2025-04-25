@@ -12,7 +12,7 @@
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
 
-        initExtra = ''
+        initContent = ''
         export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
         [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
