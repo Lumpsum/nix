@@ -17,10 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # wezterm.url = "github:wez/wezterm?dir=nix";
-
-    # stylix.url = "github:danth/stylix";
-
     nvim-nix.url = "github:Lumpsum/nvim-nix";
   };
 
@@ -64,7 +60,7 @@
           let
             username = "rickvergunst";
           in
-          darwin.lib.darwinSystem rec {
+          darwin.lib.darwinSystem {
             system = "aarch64-darwin";
             modules = [
               ./hosts/mac/configuration.nix
