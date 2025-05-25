@@ -17,6 +17,7 @@
         flavors = {
             kanagawa = ./flavors/kanagawa;
             ashen = ./flavors/ashen;
+            monoglow = ./flavors/monoglow;
         };
         theme = {
             flavor = {
