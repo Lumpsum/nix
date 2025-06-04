@@ -192,6 +192,8 @@ in
             set -sg default-terminal "tmux-256color"
             set -sa terminal-overrides ",xterm*:RGB"
 
+            set -g allow-passthrough on
+
             set -g prefix C-a
             unbind C-b
             bind-key C-a send-prefix

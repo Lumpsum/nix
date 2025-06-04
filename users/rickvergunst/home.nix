@@ -39,7 +39,6 @@ in
         pkgs.pipx
         pkgs.starship
         pkgs.go
-        pkgs.presenterm
         pkgs.oh-my-posh
         pkgs.uv
         pkgs.eza

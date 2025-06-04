@@ -25,6 +25,8 @@
     system.stateVersion = 4;
     system.primaryUser = "rickvergunst";
 
+    system.primaryUser = "rickvergunst";
+
     # The platform the configuration will be used on.
     nixpkgs.hostPlatform = "aarch64-darwin";
     nixpkgs.config.allowBroken = true;
@@ -38,6 +40,7 @@
     homebrew.taps = [];
     homebrew.brews = [
         "helm"
+        "presenterm"
     ];
     homebrew.casks = [
         "dbeaver-community"
@@ -53,5 +56,6 @@
         "signal"
         "vial"
         "tailscale"
+        "deckset"
     ];
 }
