@@ -45,6 +45,7 @@ in
         pkgs.direnv
         pkgs.podman
         pkgs.utm
+        pkgs.firefox
         nvim
     ];
 
