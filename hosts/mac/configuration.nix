@@ -25,8 +25,6 @@
     system.stateVersion = 4;
     system.primaryUser = "rickvergunst";
 
-    system.primaryUser = "rickvergunst";
-
     # The platform the configuration will be used on.
     nixpkgs.hostPlatform = "aarch64-darwin";
     nixpkgs.config.allowBroken = true;
@@ -52,10 +50,9 @@
         "spotify"
         "nikitabobko/tap/aerospace"
         "ghostty"
-        "zen-browser"
         "signal"
         "vial"
         "tailscale"
-        "deckset"
+        "zen"
     ];
 }
