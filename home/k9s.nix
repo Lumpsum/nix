@@ -23,7 +23,7 @@
                     # Toggles reactive UI. This option provide for watching on disk artifacts changes and update the UI live  Defaults to false.
                     reactive = "false";
                     # Uses in_the_navy skin located in your $XDG_CONFIG_HOME/skins/in_the_navy.yaml
-                    skin = "kanagawa";
+                    # skin = "kanagawa";
                 };
             };
         };
