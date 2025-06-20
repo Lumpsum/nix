@@ -50,6 +50,7 @@
         "spotify"
         "nikitabobko/tap/aerospace"
         "ghostty"
+        "zen"
         "signal"
         "vial"
         "tailscale"
