@@ -37,6 +37,18 @@
                             "exitcode1" = "#C53030";
                             "exitcode0" = "#d5d5d5";
                             "secondary" = "#d5d5d5";
+                    } else
+                        if config.ohmyposh.theme == "gruvbox" then
+                        {
+                            "path" = "#fbf1c7";
+                            "git" = "#98971a";
+                            "python" = "#d65d0e";
+                            "go" = "#458588";
+                            "nix" = "#83a598";
+                            "executiontime" = "#d5c4a1";
+                            "exitcode1" = "#98971a";
+                            "exitcode0" = "#a89984";
+                            "secondary" = "#a89984";
                         } else {
                             "python" = "#E6C384";
                             "path" = "#7E9CD8";

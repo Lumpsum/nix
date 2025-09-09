@@ -12,6 +12,19 @@ let
         };
     };
 
+    gruvbox = pkgs.tmuxPlugins.mkTmuxPlugin
+    {
+        pluginName = "gruvbox";
+        rtpFilePath = "gruvbox-tpm.tmux";
+        version = "v2.1.0";
+        src = pkgs.fetchFromGitHub {
+            owner = "egel";
+            repo = "tmux-gruvbox";
+            rev = "aeb30c7172a8ed8663409207814cf47d9df10d15";
+            sha256 = "sha256-TuWPw6sk61k7GnHwN2zH6x6mGurTHiA9f0E6NJfMa6g=";
+        };
+    };
+
     dracula = pkgs.tmuxPlugins.mkTmuxPlugin
     {
         pluginName = "dracula";
@@ -170,23 +183,31 @@ in
                             '';
                         }
                     else
+                    (if (config.tmux.theme == "gruvbox") then
                         {
-                            plugin = kanagawa;
-                            extraConfig = ''
+                            plugin = gruvbox;
 
-                            set -g @kanagawa-plugins "git battery time"
-                            set -g @kanagawa-show-powerline true 
-                            set -g @kanagawa-day-month true
-                            set -g @kanagawa-git-no-repo-message ""
-                            set -g @kanagawa-time-format "%F %R"
-                            set -g @kanagawa-show-fahrenheit false
-                            set -g @kanagawa-ignore-window-colors true
-                            set -g @kanagawa-show-empty-plugins false
-                            set -g @kanagawa-left-icon-padding 0
-                            set -g @kanagawa-powerline-bg-transparent true
+                            extraConfig = ''
                             '';
                         }
-                    ))
+                    else
+                    {
+                        plugin = kanagawa;
+                        extraConfig = ''
+
+                        set -g @kanagawa-plugins "git battery time"
+                        set -g @kanagawa-show-powerline true 
+                        set -g @kanagawa-day-month true
+                        set -g @kanagawa-git-no-repo-message ""
+                        set -g @kanagawa-time-format "%F %R"
+                        set -g @kanagawa-show-fahrenheit false
+                        set -g @kanagawa-ignore-window-colors true
+                        set -g @kanagawa-show-empty-plugins false
+                        set -g @kanagawa-left-icon-padding 0
+                        set -g @kanagawa-powerline-bg-transparent true
+                        '';
+                    }
+                    )))
                 ];
             extraConfig = ''
             set -sg default-terminal "tmux-256color"

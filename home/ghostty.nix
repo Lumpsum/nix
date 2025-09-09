@@ -34,6 +34,8 @@ theme = ${
                 "Kanagawa Wave"
               else if config.ghostty.theme == "ashen" then
                 "ashen"
+              else if config.ghostty.theme == "gruvbox" then
+                "GruvboxDark"
               else if config.ghostty.theme == "monoglow" then
                 "monoglow"
               else

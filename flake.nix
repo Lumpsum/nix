@@ -72,7 +72,7 @@
                 home-manager.extraSpecialArgs = {
                   inherit inputs;
                   inherit nvim-nix;
-                  theme = "ashen";
+                  theme = "gruvbox";
                 };
                 home-manager.users.rickvergunst = import users/${username}/home.nix;
               }
