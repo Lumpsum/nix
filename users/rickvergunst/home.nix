@@ -51,8 +51,10 @@ in
 
     programs.git = {
         enable = true;
-        userEmail = "vergunstje@hotmail.com";
-        userName = "Lumpsum";
+        settings.user = {
+            name = "Lumpsum";
+            email = "vergunstje@hotmail.com";
+        };
     };
 
     home.sessionVariables = {
