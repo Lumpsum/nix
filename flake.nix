@@ -53,6 +53,26 @@
               }
             ];
           };
+
+        wsl =
+          let
+            username = "wsl";
+          in
+          nixpkgs.lib.nixosSystem {
+            modules = [
+              ./hosts/${username}/configuration.nix
+
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                  inherit nvim-nix;
+                  theme = "kanagawa";
+                };
+                home-manager.users.wsl = import users/${username}/home.nix;
+              }
+            ];
+          };
       };
 
       darwinConfigurations = {

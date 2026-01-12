@@ -1,3 +1,4 @@
+
 { config, pkgs, inputs, nvim-nix, ... } @ extra:
 
 {
@@ -8,8 +9,8 @@
   config = {
       # Home Manager needs a bit of information about you and the paths it should
       # manage.
-      home.username = "lumpsum";
-      home.homeDirectory = "/home/lumpsum";
+      home.username = "wsl";
+      home.homeDirectory = "/home/wsl";
 
       nixpkgs.config.allowUnfree = true;
 
@@ -31,46 +32,21 @@
       # The home.packages option allows you to install Nix packages into your
       # environment.
       home.packages = [
-            pkgs.discord
-            pkgs.spotify
-            pkgs.protonup
-            # pkgs.steam
             pkgs.cue
             pkgs.fzf
             pkgs.lazygit
-            pkgs.jq
-            pkgs.ripgrep
             pkgs.tmux
-            pkgs.whatsapp-for-linux
             pkgs.zoxide
             pkgs.eza
             pkgs.unzip
             pkgs.kubectl
             pkgs.htop
             pkgs.neofetch
-	    pkgs.ghostty
             pkgs.direnv
             # Custom packages
             inputs.zen-browser.packages."x86_64-linux".specific
    	        nvim-nix.packages."x86_64-linux".default
-
-            pkgs.libvirt-glib
         ];
-
-    dconf.settings = {
-        "org/virt-manager/virt-manager/connections" = {
-            autoconnect = ["qemu:///system"];
-            uris = ["qemu:///system"];
-        };
-    };
-
-        # gtk = {
-        #     enable = true;
-        #     theme = {
-        #         package = pkgs.kanagawa-gtk-theme;
-        #         name = "Kanagawa";
-        #     };
-        # };
 
       # Home Manager is pretty good at managing dotfiles. The primary way to manage
       # plain files is through 'home.file'.
@@ -81,7 +57,6 @@
       #};
 
       home.sessionVariables = {
-        STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/lumpsum/.steam/root/compatibilitytools.d";
         EDITOR = "nvim";
         BROWSER = "firefox";
       };
@@ -96,32 +71,25 @@
         };
       };
 
-      #services.swaync = {
-      #  enable = true;
-      #};
-
-      tmux = {
+    k9s.enable = true;
+    yazi = {
         enable = true;
-        theme = extra.theme; 
-      };
-      zshrc.enable = true;
-      k9s.enable = true;
-      #wezterm = {
-      #  enable = true;
-      #  package = inputs.wezterm.packages."x86_64-linux".default;
-      #  theme = extra.theme; 
-      #};
-      yazi.enable = true;
-      ohmyposh = {
+        theme = extra.theme;
+    };
+    zshrc.enable = true;
+    tmux = {
         enable = true;
-        theme = extra.theme; 
-      };
-
-      #stylix.targets = {
-      #  wezterm.enable = false;
-      #  waybar.enable = false;
-      #  tmux.enable = false;
-      #};
+        theme = extra.theme;
+    };
+    ohmyposh = {
+        enable = true;
+        theme = extra.theme;
+    };
+    ghostty = {
+        enable = true;
+        mac = false;
+        theme = extra.theme;
+    };
 
       # Let Home Manager install and manage itself.
       programs.home-manager.enable = true;
