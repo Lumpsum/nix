@@ -1,6 +1,18 @@
+{ config, pkgs, inputs, nvim-nix, ... } @ extra: let
+    oldnvim = nvim-nix.packages.x86_64-linux.default;
 
-{ config, pkgs, inputs, nvim-nix, ... } @ extra:
-
+    inherit (oldnvim.passthru) utils;
+    nvim = oldnvim.override (prev: {
+        name = "nvim";
+        packageDefinitions = prev.packageDefinitions // {
+            nvim = utils.mergeCatDefs prev.packageDefinitions.nvim ({pkgs, ... }: {
+                categories = {
+                    colorscheme = extra.theme;
+                };
+            });
+        };
+    });
+in
 {
   imports = [
     ../../home
@@ -44,16 +56,11 @@
             pkgs.neofetch
             pkgs.direnv
             # Custom packages
-            inputs.zen-browser.packages."x86_64-linux".specific
-   	        nvim-nix.packages."x86_64-linux".default
+            nvim
         ];
 
       # Home Manager is pretty good at managing dotfiles. The primary way to manage
       # plain files is through 'home.file'.
-      #home.file = {
-      #  ".config/nvim" = {
-      #      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
-      #  };
       #};
 
       home.sessionVariables = {
@@ -63,11 +70,13 @@
 
       programs.git = {
         enable = true;
-        userEmail = "vergunstje@hotmail.com";
-        userName = "Lumpsum";
-        extraConfig = {
+        settings = {
             pull.rebase = true;
             init.defaultBranch = "main";
+            user = {
+                email = "vergunstje@hotmail.com";
+                name = "Lumpsum";
+            };
         };
       };
 
