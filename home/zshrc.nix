@@ -1,19 +1,28 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-    options = {
-        zshrc.enable = lib.mkEnableOption "enable zshrc";
-    };
+  options = {
+    zshrc.enable = lib.mkEnableOption "enable zshrc";
+  };
 
-    config = lib.mkIf config.zshrc.enable {
-      programs.zsh = {
-        enable = true;
-        enableCompletion = true;
-        autosuggestion.enable = true;
-        syntaxHighlighting.enable = true;
+  config = lib.mkIf config.zshrc.enable {
+    programs.zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
 
-        initContent = ''
+      initContent = ''
         export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+
+        export GEMINI_API_KEY=$(cat ${config.sops.secrets.gemini_key.path})
+        export OPENAI_API_KEY=$(cat ${config.sops.secrets.chatgpt_key.path})
+
         [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
         eval "$(zoxide init zsh)"
@@ -37,19 +46,19 @@
         }
 
         eval "$(direnv hook zsh)"
-        '';
+      '';
 
-        shellAliases = {
-            l = "eza -l --icons --git -a";
-            lt = "eza --tree --level=2 --long --icons --git";
-            ltree = "eza --tree --level=2  --icons --git";
-        };
+      shellAliases = {
+        l = "eza -l --icons --git -a";
+        lt = "eza --tree --level=2 --long --icons --git";
+        ltree = "eza --tree --level=2  --icons --git";
+      };
 
-        oh-my-zsh = {
-            enable = true;
-            plugins = [ "git" ];
-            theme = "robbyrussell";
-        };
+      oh-my-zsh = {
+        enable = true;
+        plugins = [ "git" ];
+        theme = "robbyrussell";
       };
     };
+  };
 }
