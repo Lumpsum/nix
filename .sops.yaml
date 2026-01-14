@@ -1,8 +1,10 @@
 keys:
-  - &rickvergunst age1ftd482zsq7299gat32kjhrk0qgk26tdrl23qk02f4x3yn7e0eawsdknzx8
+  - &essent age1ftd482zsq7299gat32kjhrk0qgk26tdrl23qk02f4x3yn7e0eawsdknzx8
+  - &xccelerated age1kvlgefx4fyaam06w2qjjdelpr4sygrufnztw4lhd0s3d8wmp0qqqyqv3zk
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
     - age:
-      - *rickvergunst
+      - *essent
+      - *xccelerated
 
