@@ -5,7 +5,12 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -16,17 +21,19 @@
   wsl.enable = true;
   wsl.defaultUser = "wsl";
 
-    nixpkgs.hostPlatform = "x86_64-linux";
+  nixpkgs.hostPlatform = "x86_64-linux";
 
-    nix.settings.experimental-features = [
-        "nix-command"
-        "flakes"
-    ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
-    virtualisation.docker.enable = true;
-    programs.zsh.enable = true;
-    users.users.wsl.extraGroups = ["docker"];
-    users.users.wsl.shell = pkgs.zsh;
+  virtualisation.docker.enable = true;
+  programs.zsh.enable = true;
+  users.users.wsl.extraGroups = [ "docker" ];
+  users.users.wsl.shell = pkgs.zsh;
+
+  programs.nix-ld.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

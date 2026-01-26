@@ -1,10 +1,12 @@
 keys:
   - &essent age1ftd482zsq7299gat32kjhrk0qgk26tdrl23qk02f4x3yn7e0eawsdknzx8
   - &xccelerated age1kvlgefx4fyaam06w2qjjdelpr4sygrufnztw4lhd0s3d8wmp0qqqyqv3zk
+  - &wsl age1t7j89nd3az4zs9x0zwwddr38um2awv3uu4lzqz5jhxjzjdr4g92skmgz9r
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
     - age:
       - *essent
       - *xccelerated
+      - *wsl
 

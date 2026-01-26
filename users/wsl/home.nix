@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, nvim-nix, ... } @ extra: let
+{ config, pkgs, inputs, nvim-nix, sops, ... } @ extra: let
     oldnvim = nvim-nix.packages.x86_64-linux.default;
 
     inherit (oldnvim.passthru) utils;
@@ -16,6 +16,7 @@ in
 {
   imports = [
     ../../home
+    inputs.sops-nix.homeManagerModules.sops
   ];
 
   config = {
@@ -40,6 +41,16 @@ in
             _7zz = prev._7zz.override { useUasm = true; };
         })
       ];
+
+      sops = {
+        age.keyFile = "/home/wsl/.config/sops/age/keys.txt";
+
+        defaultSopsFile = ../../secrets.yaml;
+        defaultSopsFormat = "yaml";
+
+        secrets.gemini_key = { };
+        secrets.chatgpt_key = { };
+      };
 
       # The home.packages option allows you to install Nix packages into your
       # environment.
