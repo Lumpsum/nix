@@ -48,6 +48,7 @@ in
 
     secrets.gemini_key = { };
     secrets.chatgpt_key = { };
+    secrets.claude_code_key = { };
   };
 
   home.username = "rickvergunst";
@@ -80,6 +81,7 @@ in
     pkgs.firefox
     pkgs.age
     pkgs.sops
+    pkgs.claude-code
     nvim
   ];
 

@@ -25,9 +25,14 @@
     system.stateVersion = 4;
     system.primaryUser = "rickvergunst";
 
-    # The platform the configuration will be used on.
-    nixpkgs.hostPlatform = "aarch64-darwin";
-    nixpkgs.config.allowBroken = true;
+    nixpkgs = {
+        # The platform the configuration will be used on.
+        hostPlatform = "aarch64-darwin";
+        config = {
+            allowBroken = true;
+            allowUnfree = true;
+        };
+    };
 
     users.users.rickvergunst = {
         name = "rickvergunst";

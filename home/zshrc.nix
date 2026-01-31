@@ -22,6 +22,7 @@
 
         export GEMINI_API_KEY=$(cat ${config.sops.secrets.gemini_key.path})
         export OPENAI_API_KEY=$(cat ${config.sops.secrets.chatgpt_key.path})
+        export CLAUDE_CODE_OAUTH_TOKEN=$(cat ${config.sops.secrets.claude_code_key.path})
 
         [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
