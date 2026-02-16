@@ -50,6 +50,7 @@ in
 
         secrets.gemini_key = { };
         secrets.chatgpt_key = { };
+        secrets.claude_code_key = { };
       };
 
       # The home.packages option allows you to install Nix packages into your
