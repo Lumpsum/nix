@@ -96,7 +96,9 @@ in
         enable = true;
         theme = extra.theme;
     };
-    zshrc.enable = true;
+    zshrc = {
+      enable = true;
+    };
     tmux = {
         enable = true;
         theme = extra.theme;

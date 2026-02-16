@@ -106,6 +106,7 @@ in
 
   zshrc = {
     enable = true;
+    openaiApiKey = true;
   };
 
   tmux = {

@@ -8,6 +8,9 @@
 {
   options = {
     zshrc.enable = lib.mkEnableOption "enable zshrc";
+    zshrc.geminiApiKey = lib.mkEnableOption "export GEMINI_API_KEY from sops" // { default = true; };
+    zshrc.openaiApiKey = lib.mkEnableOption "export OPENAI_API_KEY from sops";
+    zshrc.claudeCodeToken = lib.mkEnableOption "export CLAUDE_CODE_OAUTH_TOKEN from sops" // { default = true; };
   };
 
   config = lib.mkIf config.zshrc.enable {
@@ -20,9 +23,15 @@
       initContent = ''
         export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
 
-        export GEMINI_API_KEY=$(cat ${config.sops.secrets.gemini_key.path})
-        export OPENAI_API_KEY=$(cat ${config.sops.secrets.chatgpt_key.path})
-        export CLAUDE_CODE_OAUTH_TOKEN=$(cat ${config.sops.secrets.claude_code_key.path})
+        ${lib.optionalString config.zshrc.geminiApiKey ''
+          export GEMINI_API_KEY=$(cat ${config.sops.secrets.gemini_key.path})
+        ''}
+        ${lib.optionalString config.zshrc.openaiApiKey ''
+          export OPENAI_API_KEY=$(cat ${config.sops.secrets.chatgpt_key.path})
+        ''}
+        ${lib.optionalString config.zshrc.claudeCodeToken ''
+          export CLAUDE_CODE_OAUTH_TOKEN=$(cat ${config.sops.secrets.claude_code_key.path})
+        ''}
 
         [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
