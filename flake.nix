@@ -17,7 +17,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvim-nix.url = "github:Lumpsum/nvim-nix";
+    # nvim-nix.url = "github:Lumpsum/nvim-nix";
+    nvim-nix.url = "/Users/rickvergunst/projects/personal/nvim-nix/";
 
     sops-nix = {
         url = "github:Mic92/sops-nix";
@@ -97,7 +98,30 @@
                 home-manager.extraSpecialArgs = {
                   inherit inputs;
                   inherit nvim-nix;
-                  theme = "gruvbox";
+                  theme = "monoglow";
+                };
+                home-manager.users.rickvergunst = import users/${username}/home.nix;
+              }
+            ];
+          };
+
+        essent =
+          let
+            username = "rickvergunst";
+          in
+          darwin.lib.darwinSystem {
+            system = "aarch64-darwin";
+            modules = [
+              ./hosts/mac/configuration.nix
+              home-manager.darwinModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.backupFileExtension = "backup";
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                  inherit nvim-nix;
+                  theme = "monoglow";
                 };
                 home-manager.users.rickvergunst = import users/${username}/home.nix;
               }
