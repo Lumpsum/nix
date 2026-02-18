@@ -17,6 +17,7 @@ let
         {
           categories = {
             colorscheme = extra.theme;
+            adapter = extra.adapter;
           };
         }
       );
@@ -106,6 +107,7 @@ in
 
   zshrc = {
     enable = true;
+    openaiApiKey = extra.openaiApiKey or false;
   };
 
   tmux = {

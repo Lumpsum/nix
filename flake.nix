@@ -122,6 +122,7 @@
                   inherit inputs;
                   inherit nvim-nix;
                   theme = "monoglow";
+                  adapter = "openai";
                 };
                 home-manager.users.rickvergunst = import users/${username}/home.nix;
               }
