@@ -9,5 +9,6 @@
         ./wezterm.nix
         ./ohmyposh.nix
         ./ghostty.nix
+        ./claude.nix
     ];
 }

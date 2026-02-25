@@ -124,5 +124,7 @@ in
     theme = extra.theme;
   };
 
+  claude.enable = true;
+
   programs.home-manager.enable = true;
 }
