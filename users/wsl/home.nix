@@ -67,6 +67,7 @@ in
             pkgs.htop
             pkgs.neofetch
             pkgs.direnv
+            pkgs.claude-code
             # Custom packages
             nvim
         ];
