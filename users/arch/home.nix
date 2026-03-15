@@ -64,7 +64,7 @@ in
             pkgs.eza
             pkgs.unzip
             pkgs.htop
-            pkgs.neofetch
+            pkgs.fastfetch
             pkgs.direnv
             # Custom packages
             # (pkgs.nerdfonts.override { fonts = [ "Hack" ]; })

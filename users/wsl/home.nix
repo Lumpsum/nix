@@ -65,7 +65,7 @@ in
             pkgs.unzip
             pkgs.kubectl
             pkgs.htop
-            pkgs.neofetch
+            pkgs.fastfetch
             pkgs.direnv
             pkgs.claude-code
             # Custom packages

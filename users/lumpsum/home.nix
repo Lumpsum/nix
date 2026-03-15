@@ -47,8 +47,8 @@
             pkgs.unzip
             pkgs.kubectl
             pkgs.htop
-            pkgs.neofetch
-	    pkgs.ghostty
+            pkgs.fastfetch
+	        pkgs.ghostty
             pkgs.direnv
             # Custom packages
             inputs.zen-browser.packages."x86_64-linux".specific
