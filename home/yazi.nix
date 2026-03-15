@@ -14,6 +14,7 @@
       programs.yazi = {
         enable = true;
         enableZshIntegration = true;
+        shellWrapperName = "y";
         flavors = {
             kanagawa = ./flavors/kanagawa;
             ashen = ./flavors/ashen;
