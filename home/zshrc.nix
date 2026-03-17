@@ -55,6 +55,26 @@
             rm -f -- "$tmp"
         }
 
+        alias awsprofiles='aws configure list-profiles'
+
+        function awsuse() {
+          local profile=$(aws configure list-profiles | fzf --prompt="AWS Profile > " --height=40%)
+          if [[ -n "$profile" ]]; then
+            export AWS_PROFILE=$profile
+            eval "$(aws configure export-credentials --profile $profile --format env)"
+            echo "✓ Switched to: $profile"
+          fi
+        }
+
+        function awsenv() {
+          eval "$(aws configure export-credentials --profile $1 --format env)"
+          aws sts get-caller-identity
+        }
+
+        alias awswho='aws sts get-caller-identity'
+
+        alias awslogin='aws sso login --sso-session my-sso'
+
         eval "$(direnv hook zsh)"
       '';
 
