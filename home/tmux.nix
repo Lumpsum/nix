@@ -36,6 +36,18 @@ let
             sha256 = "sha256-1jW8L2/Z0/pLHrvj7dXiLQ9uxQ7T5Vn9cW7+jPxwJPQ=";
         };
     };
+
+    catppuccin = pkgs.tmuxPlugins.mkTmuxPlugin
+    {
+        pluginName = "catppuccin";
+        version = "v2.1.3";
+        src = pkgs.fetchFromGitHub {
+            owner = "catppuccin";
+            repo = "tmux";
+            rev = "b2f219c00609ea1772bcfbdae0697807184743e4";
+            sha256 = "sha256-Is0CQ1ZJMXIwpDjrI5MDNHJtq+R3jlNcd9NXQESUe2w=";
+        };
+    };
 in
 {
     options = {
@@ -54,7 +66,8 @@ in
                     tmuxPlugins.vim-tmux-navigator
                     tmuxPlugins.yank
                     tmuxPlugins.sensible
-                    (if (config.tmux.theme == "monoglow") then
+                ] ++ (if (config.tmux.theme == "monoglow") then
+                    [
                         {
                             plugin = dracula;
                             extraConfig = ''
@@ -103,8 +116,9 @@ in
                             "
                             '';
                         }
-                    else  
-                    (if (config.tmux.theme == "ashen") then
+                    ]
+                else if (config.tmux.theme == "ashen") then
+                    [
                         {
                             plugin = dracula;
                             extraConfig = ''
@@ -182,33 +196,57 @@ in
                             "
                             '';
                         }
-                    else
-                    (if (config.tmux.theme == "gruvbox") then
+                    ]
+                else if (config.tmux.theme == "gruvbox") then
+                    [
                         {
                             plugin = gruvbox;
 
                             extraConfig = ''
                             '';
                         }
-                    else
-                    {
-                        plugin = kanagawa;
-                        extraConfig = ''
+                    ]
+                else if (config.tmux.theme == "catppuccin") then
+                    [
+                        {
+                            plugin = catppuccin;
+                            extraConfig = ''
+                            set -g @catppuccin_flavor "mocha"
+                            set -g @catppuccin_window_status_style "rounded"
 
-                        set -g @kanagawa-plugins "git battery time"
-                        set -g @kanagawa-show-powerline true 
-                        set -g @kanagawa-day-month true
-                        set -g @kanagawa-git-no-repo-message ""
-                        set -g @kanagawa-time-format "%F %R"
-                        set -g @kanagawa-show-fahrenheit false
-                        set -g @kanagawa-ignore-window-colors true
-                        set -g @kanagawa-show-empty-plugins false
-                        set -g @kanagawa-left-icon-padding 0
-                        set -g @kanagawa-powerline-bg-transparent true
-                        '';
-                    }
-                    )))
-                ];
+                            set -g status-right-length 100
+                            set -g status-left-length 100
+                            set -g status-left ""
+                            set -g status-right "#{E:@catppuccin_status_application}"
+                            set -agF status-right "#{E:@catppuccin_status_cpu}"
+                            set -ag status-right "#{E:@catppuccin_status_session}"
+                            set -ag status-right "#{E:@catppuccin_status_uptime}"
+                            set -agF status-right "#{E:@catppuccin_status_battery}"
+                            '';
+                        }
+                        tmuxPlugins.cpu
+                        tmuxPlugins.battery
+                    ]
+                else
+                    [
+                        {
+                            plugin = kanagawa;
+                            extraConfig = ''
+
+                            set -g @kanagawa-plugins "git battery time"
+                            set -g @kanagawa-show-powerline true 
+                            set -g @kanagawa-day-month true
+                            set -g @kanagawa-git-no-repo-message ""
+                            set -g @kanagawa-time-format "%F %R"
+                            set -g @kanagawa-show-fahrenheit false
+                            set -g @kanagawa-ignore-window-colors true
+                            set -g @kanagawa-show-empty-plugins false
+                            set -g @kanagawa-left-icon-padding 0
+                            set -g @kanagawa-powerline-bg-transparent true
+                            '';
+                        }
+                    ]
+                );
             extraConfig = ''
             set -sg default-terminal "tmux-256color"
             set -sa terminal-overrides ",xterm*:RGB"
@@ -249,3 +287,5 @@ in
         };
     };
 }
+
+

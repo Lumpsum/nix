@@ -49,6 +49,18 @@
                             "exitcode1" = "#98971a";
                             "exitcode0" = "#a89984";
                             "secondary" = "#a89984";
+                        } else
+                        if config.ohmyposh.theme == "catppuccin" then
+                        {
+                            "path" = "#89b4fa";
+                            "git" = "#a6e3a1";
+                            "python" = "#f9e2af";
+                            "go" = "#89dceb";
+                            "nix" = "#cba6f7";
+                            "executiontime" = "#cdd6f4";
+                            "exitcode1" = "#f38ba8";
+                            "exitcode0" = "#a6adc8";
+                            "secondary" = "#a6adc8";
                         } else {
                             "python" = "#E6C384";
                             "path" = "#7E9CD8";
@@ -180,3 +192,4 @@
             };
     };
 }
+

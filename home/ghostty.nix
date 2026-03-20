@@ -32,6 +32,8 @@ cursor-style = bar
 theme = ${
               if config.ghostty.theme == "kanagawa" then
                 "Kanagawa Wave"
+              else if config.ghostty.theme == "catppuccin" then
+                "catppuccin-mocha"
               else if config.ghostty.theme == "ashen" then
                 "ashen"
               else if config.ghostty.theme == "gruvbox" then
@@ -59,6 +61,8 @@ cursor-style = bar
 theme = ${
               if config.ghostty.theme == "kanagawa" then
                 "Kanagawa Wave"
+              else if config.ghostty.theme == "catppuccin" then
+                "catppuccin-mocha"
               else if config.ghostty.theme == "ashen" then
                 "ashen"
               else if config.ghostty.theme == "monoglow" then
