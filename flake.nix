@@ -17,8 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nvim-nix.url = "github:Lumpsum/nvim-nix";
-    nvim-nix.url = "/Users/rickvergunst/projects/personal/nvim-nix/";
+    nvim-nix.url = "github:Lumpsum/nvim-nix";
 
     sops-nix = {
         url = "github:Mic92/sops-nix";
@@ -123,7 +122,7 @@
                 home-manager.extraSpecialArgs = {
                   inherit inputs;
                   inherit nvim-nix;
-                  theme = "monoglow";
+                  theme = "catppuccin";
                   adapter = "openai";
                   openaiApiKey = true;
                 };
